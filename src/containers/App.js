@@ -2,20 +2,21 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import {robots} from '../robots';
+// import {robots} from '../robots';
 
 export default class App extends React.PureComponent {
 	state = {
-		robots: robots,
-		// robots: [],
+		// robots: robots,
+		robots: [],
 		searchfield: ''
 	}
 			
-	// componentDidMount() {
-	// 	fetch('https://jsonplaceholder.typicode.com/users')
-	// 	  .then(response=> response.json())
-	// 	  .then(users => {this.setState({ robots: users})});
-	// }		
+	componentDidMount() {
+		// fetch('https://jsonplaceholder.typicode.com/users')
+		fetch('https://still-hamlet-73992.herokuapp.com/users')
+		  .then(response=> response.json())
+		  .then(users => {this.setState({ robots: users})});
+	}		
 	
 
 	onSearchChange = (event) => {
